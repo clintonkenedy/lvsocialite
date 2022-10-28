@@ -14,8 +14,10 @@ class SocialiteController extends Controller
     }
 
     public function callbackGithub(){
-        try {
+        // $githubUser = Socialite::driver('github')->user();
+        // dd($githubUser);
 
+        try {
             $githubUser = Socialite::driver('github')->user();
             $findUser = User::where('gh_id',$githubUser->id)->first();
             if($findUser){
@@ -28,6 +30,7 @@ class SocialiteController extends Controller
                     'name'=>$githubUser->nickname,
                     'email'=>$githubUser->email,
                     'gh_id'=>$githubUser->id,
+                    'avatar'=>$githubUser->avatar,
                     'password'=>encrypt('12345678')
                 ]);
                 Auth::login($newUser);
