@@ -27,19 +27,22 @@ Route::get('auth/github',[SocialiteController::class, 'redirectGithub']);
 Route::get('auth/github/callback',[SocialiteController::class, 'callbackGithub']);
 
 
-//For adding an image
-Route::get('/add-image',[ImageUploadController::class,'addImage'])->name('images.add');
+// //For adding an image
+// Route::get('/add-image',[ImageUploadController::class,'addImage'])->name('images.add');
 
-//For storing an image
-Route::post('/store-image',[ImageUploadController::class,'storeImage'])
-->name('images.store');
+// //For storing an image
+// Route::post('/store-image',[ImageUploadController::class,'storeImage'])
+// ->name('images.store');
 
-//For showing an image
-Route::get('/view-image',[ImageUploadController::class,'viewImage'])->name('images.view');
+// //For showing an image
+// Route::get('/view-image',[ImageUploadController::class,'viewImage'])->name('images.view');
 
 
 Route::group(['middleware'=>['auth']],function(){
     Route::get('/profile/edit', [UserController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');
-    Route::post('/profile/update_avatar', [UserController::class, 'update_avatar'])->name('profile.update_avatar');
+    //CHANGE PASSWORD
+    Route::get('/password/edit', [UserController::class, 'edit_pass'])->name('password.edit');
+    Route::post('/password/update', [UserController::class, 'update_pass'])->name('password.update');
+    // Route::post('/profile/update_avatar', [UserController::class, 'update_avatar'])->name('profile.update_avatar');
 });

@@ -37,7 +37,7 @@ class SocialiteController extends Controller
                 return redirect()->intended('home');
             }
         }catch (Exception $e){
-            dd($e->getMessage());
+            return redirect()->intended('home');
         }
     }
 }
