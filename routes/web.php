@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('auth/github',[SocialiteController::class, 'redirectGithub']);
 Route::get('auth/github/callback',[SocialiteController::class, 'callbackGithub']);
+
+Route::get('catalogo',[ProductoController::class, 'index']);
+Route::get('producto/{id}',[ProductoController::class, 'show'])->name('producto');
 
 
 // //For adding an image

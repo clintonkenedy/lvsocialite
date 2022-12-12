@@ -318,6 +318,12 @@ return [
             'route'  => 'password.edit',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'Store'],
+        [
+            'text' => 'Catalogo',
+            'url'  => '/catalogo',
+            'icon' => 'fas fa-fw fa-store',
+        ],
         // ['header' => 'labels'],
         // [
         //     'text'       => 'important',
