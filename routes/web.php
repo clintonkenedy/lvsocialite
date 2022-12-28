@@ -23,12 +23,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('auth/github',[SocialiteController::class, 'redirectGithub']);
 Route::get('auth/github/callback',[SocialiteController::class, 'callbackGithub']);
 
 Route::get('catalogo',[ProductoController::class, 'index']);
 Route::get('producto/{id}',[ProductoController::class, 'show'])->name('producto');
+
+//pagos
+
+Route::get('/success', [ProductoController::class, 'pago_success'])->name('success');
 
 
 // //For adding an image

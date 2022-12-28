@@ -18,4 +18,9 @@ class ProductoController extends Controller
         $producto = Producto::find($id);
         return view('producto.show', compact('producto'));
     }
+    public function pago_success(Request $request)
+    {
+        // dd($request->all());
+        return view('pagos.success');
+    }
 }
