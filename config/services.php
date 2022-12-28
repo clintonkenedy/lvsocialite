@@ -35,4 +35,11 @@ return [
         'redirect' => env('GITHUB_REDIRECT_URI'),
     ],
 
+    //mercado Pago
+
+    'mercadopago' => [
+        'key' => env(MP_PUBLIC_KEY),
+        'token' => env(MP_ACCESS_KEY),
+    ]
+
 ];
